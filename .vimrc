@@ -1,4 +1,13 @@
 " Settings {{{
+
+" Make sure pathogen works on windows and linux
+if has('win32') || has('win64')
+  set runtimepath=$HOME/.vim,$VIM/vimfiles,$VIMRUNTIME,$VIM/vimfiles/after,$HOME/.vim/after
+endif
+
+" Maximaze on start for Windows
+autocmd GUIEnter * simalt ~x
+
 " Switch syntax highlighting on, when the terminal has colors
 syntax on
 
@@ -57,10 +66,6 @@ set shiftwidth=4
 
 " Turn on line numbers
 set number
-
-" Highlight tailing whitespace
-" See issue: https://github.com/Integralist/ProVim/issues/4
-set list listchars=tab:\ \ ,trail:·
 
 " Get rid of the delay when pressing O (for example)
 " http://stackoverflow.com/questions/2158516/vim-delay-before-o-opens-a-new-line
@@ -144,30 +149,8 @@ let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 " CtrlP -> directories to ignore when fuzzy finding
 let g:ctrlp_custom_ignore = '\v[\/]((node_modules)|\.(git|svn|grunt|sass-cache))$'
 
-" Ack (uses Ag behind the scenes)
-let g:ackprg = 'ag --nogroup --nocolor --column'
-
 " Airline (status line)
 let g:airline_powerline_fonts = 1
-
-" Gist authorisation settings
-let g:github_user = $GITHUB_USER
-let g:github_token = $GITHUB_TOKEN
-let g:gist_detect_filetype = 1
-let g:gist_open_browser_after_post = 1
-" Related plugins:
-" https://github.com/mattn/webapi-vim
-" https://github.com/vim-scripts/Gist.vim
-" https://github.com/tpope/vim-fugitive
-
-" HTML generation using 'emmet-vim'
-" NORMAL mode Ctrl+y then , <C-y,>
-
-" Git gutter
-let g:gitgutter_enabled = 1
-let g:gitgutter_eager = 0
-let g:gitgutter_sign_column_always = 1
-highlight clear SignColumn
 
 " Searching the file system
 map <leader>' :NERDTreeToggle<cr>
@@ -229,9 +212,6 @@ map <leader>w[ <C-W>= " equalize all windows
 " Make splitting Vim windows easier
 map <leader>; <C-W>s
 map <leader>` <C-W>v
-
-" Running Tests...
-" See also <https://gist.github.com/8114940>
 
 " Run currently open RSpec test file
 map <Leader>rf :w<cr>:!rspec % --format nested<cr>
