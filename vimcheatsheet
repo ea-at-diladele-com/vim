@@ -1,0 +1,13 @@
+zM    Collapse all
+zR    Open all
+za    Toggle current
+
+:nmap     Display key bindings for NORMAL mode
+:vmap     Display key bindings for VISUAL mode
+:imap     Display key bindings for INSERT mode
+:map      Display key bindings for all modes
+
+:history  All history
+q:    dynamic command history
+
+
