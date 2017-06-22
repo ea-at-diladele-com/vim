@@ -127,7 +127,9 @@ filetype plugin indent on " required by Pathogen Plugin Manager
 
 " Theme
 set background=light
-colorscheme Tomorrow-Night
+
+" Font
+set guifont=Fixedsys:h14:cANSI:qDRAFT
 
 " CtrlP
 map <leader>t <C-p>
